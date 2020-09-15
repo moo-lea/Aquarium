@@ -1,22 +1,25 @@
 window.onload=function() {
- lengthObj = document.getElementById('txtLength');
- girthObj = document.getElementById('txtGirth');
- weightObj = document.getElementById('tdWeight');
- document.getElementById('btnReset').onclick = resetInputs;
- document.getElementById('btnCalc').onclick = calcWeight;
-            }
+    lengthObj = document.getElementById('txtLength');
+    heightObj = document.getElementById('txtHeight');
+    widthObj = document.getElementById('txtWidth');
+costObj = document.getElementById('tdCost');
+    document.getElementById('btnReset').onclick = resetInputs;
+    document.getElementById('btnCalcCost').onclick = calcCost;
+}
 function resetInputs() {
- lengthObj.value = '';
- girthObj.value = '';
- weightObj.innerHTML = '';
-            }
-function calcWeight() {
- var length = new Number(lengthObj.value);
- var girth = new Number(girthObj.value);
- weightObj.innerHTML = '';
- if(isNaN(length) || isNaN(girth)) {
- alert('Invalid length or girth');
-return;
-            }
-weightObj.innerHTML = length*Math.pow(girth,2)/800;
-            }
+    lengthObj.value = '';
+    heightObj.value = '';
+    widthObj.value = '';
+costObj.innerHTML = '';
+}
+function calcCost() {
+    var length = new Number(lengthObj.value);
+    var height = new Number(heightObj.value);
+var width = new Number(widthObj.value);
+    costObj.innerHTML = '';
+    if(isNaN(length) || isNaN(height) || isNaN(width)) {
+        alert('Invalid length or height or width');
+        return;
+    }
+costObj.innerHTML = "$" + 2*(length*height+width*height+length*width)*0.062
+}
